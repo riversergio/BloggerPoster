@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "module": "ES6",
+        "target": "ES6",
+        "strictFunctionTypes": true,
+        "sourceMap": true,
+        "outDir": "./public/js"
+    },
+    "exclude": [
+        "node_modules",
+        "**/node_modules/*"
+    ]
+}
