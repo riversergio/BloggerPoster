@@ -3,9 +3,10 @@ const expressHandlebars = require('express-handlebars');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 // Create app
-const app = express(), port = 3000;
+const app = express(), port = process.env.PORT || 3000;
 // Router import
 const appRouter = require('./routers');
+const { env } = require('process');
 // App middleware
 app.engine('handlebars', expressHandlebars());
 app.use(express.static('public'));
