@@ -8,7 +8,7 @@ if (fs.existsSync(keyPath)) {
     keys = require(keyPath).web;
 }
 // Create auth client
-const oauth2Client = new google.auth.OAuth2(keys.client_id, keys.client_secret, keys.redirect_uris[1]);
+const oauth2Client = new google.auth.OAuth2(keys.client_id, keys.client_secret, 'https://ductranspot.herokuapp.com');
 oauth2Client.on('tokens', (tokens) => {
     if(tokens.refresh_token) {
         console.log(tokens.refresh_token);
