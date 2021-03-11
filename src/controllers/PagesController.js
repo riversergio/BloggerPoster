@@ -15,7 +15,7 @@ class PagesController {
             published: [blog.published.substring(8, 10), blog.published.substring(5, 7), blog.published.substring(0, 4)].join("/")
         }));
         
-        res.render('index',{
+        res.render('blogList',{
             title: "Blogger Poster - DucTranSpot",
             blogs: blogParseData,
             userData: res.locals.userData.data

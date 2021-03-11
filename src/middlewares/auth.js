@@ -8,7 +8,7 @@ if (fs.existsSync(keyPath)) {
     keys = require(keyPath).web;
 }
 // Create auth client
-const oauth2Client = new google.auth.OAuth2(keys.client_id, keys.client_secret, keys.redirect_uris[0]);
+const oauth2Client = new google.auth.OAuth2(keys.client_id, keys.client_secret, keys.redirect_uris[1]);
 // Set auth options
 google.options({auth: oauth2Client});
 // Export 
@@ -31,7 +31,10 @@ async function auth(req,res,next) {
                 access_type: 'offline',
                 scope: ['https://www.googleapis.com/auth/blogger', 'https://www.googleapis.com/auth/userinfo.profile']
             });
-            res.render('authRequire', { authUrl });
+            res.render('auth', {
+                authUrl,
+                title: 'Vui lòng cấp quyền cho tool'
+            });
         } else {
             oauth2Client.setCredentials({
                 access_token: user

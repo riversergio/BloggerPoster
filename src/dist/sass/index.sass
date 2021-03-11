@@ -1,109 +1,40 @@
-/* vietnamese */
-@font-face
-    font-family: 'Roboto'
-    font-style: normal
-    font-weight: 300
-    font-display: swap
-    src: url(../webfonts/Roboto-Light.ttf) format('truetype')
-@font-face
-    font-family: 'Roboto'
-    font-style: italic
-    font-weight: 300
-    font-display: swap
-    src: url(../webfonts/Roboto-LightItalic.ttf) format('truetype')
-@font-face
-    font-family: 'Roboto'
-    font-style: normal
-    font-weight: 400
-    font-display: swap
-    src: url(../webfonts/Roboto-Regular.ttf) format('truetype')
-@font-face
-    font-family: 'Roboto'
-    font-style: italic
-    font-weight: 400
-    font-display: swap
-    src: url(../webfonts/Roboto-Italic.ttf) format('truetype')
-@font-face
-    font-family: 'Roboto'
-    font-style: normal
-    font-weight: 500
-    font-display: swap
-    src: url(../webfonts/Roboto-Medium.ttf) format('truetype')
-@font-face
-    font-family: 'Roboto'
-    font-style: italic
-    font-weight: 500
-    font-display: swap
-    src: url(../webfonts/Roboto-MediumItalic.ttf) format('truetype')
-@font-face
-    font-family: 'Roboto'
-    font-style: normal
-    font-weight: 600
-    font-display: swap
-    src: url(../webfonts/Roboto-Bold.ttf) format('truetype')
-@font-face
-    font-family: 'Roboto'
-    font-style: italic
-    font-weight: 600
-    font-display: swap
-    src: url(../webfonts/Roboto-BoldItalic.ttf) format('truetype')
+@import fonts/font
+@mixin textElipses($lineClamp)
+    text-overflow: ellipsis
+    display: -webkit-box
+    -webkit-box-orient: vertical
+    -webkit-line-clamp: #{$lineClamp}
+    overflow: hidden
+    
 body
     font-family: 'Roboto',sans-serif
-.table-sm
-    thead
+
+// Table css
+.table
+    thead th
+        font-size: .9rem
+    .blog-index
+        text-align: center
+    .blog-title
+        a
+            margin: 0 0 .15rem
+            padding: .25rem 0 0
+            display: block
+        .blog-info
+            padding: 0 0 .25rem
+    th, td
+        vertical-align: middle
+    .post-select
         position: relative
-    tr
-        border-radius: .25rem
-        overflow: hidden
-        .index-col
-            font-size: .85rem
-            width: 50px
-        .view-col
-            width: calc(40px + .6rem)
-        th
-            font-size: .875rem
-            padding: 0 1rem
-            border: none
-            height: 40px
-            line-height: 40px
-.indexCol
-    font-size: 1rem
-    text-align: center
-    width: 75px
-    span
-        display: inline-block
-        padding: 1rem
-        color: white
-.titleCol
-    letter-spacing: 1px
-    a
-        font-size: 1.15rem
-        text-overflow: ellipsis
-        overflow: hidden
-        -webkit-line-clamp: 1
-        -webkit-box-orient: vertical
-        display: -webkit-box
-.thumbnail-col
-    width: calc(50px + .6rem)
-.post-title
-    text-overflow: ellipsis
-    overflow: hidden
-    -webkit-line-clamp: 3
-    -webkit-box-orient: vertical
-    display: -webkit-box
-    font-size: .85rem
-.app-image
-    max-width: 100px
-    height: 100px
-    width: 100%
-    border: 1px solid #eeeeee
-    cursor: pointer
-    padding: 0
-    margin-right: .5rem
-.app-content-editor
-    outline: none
-#pages
-    .post-title 
+        width: 30px
+        .form-check-input
+            left: 50%
+            top: 50%
+            transform: translate(-50%,-50%)
+            margin: 0
+    .post-thumbnail
+        width: calc(50px + .6rem)
+    .post-title a
+        font-weight: bold
         font-size: .85rem
-.blog-title
-    max-width: 400px
+        @include textElipses(2)

@@ -1,0 +1,25 @@
+<table id="blogs" class="table table-sm table-hover">
+    <thead class='thead-dark'>
+        <tr>
+            <th class="blog-index" scope="col">STT</th>
+            <th scope="col">Thông tin blog</th>
+            <th scope="col">Url Blog</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each blogs}}
+            <tr class="font-weight-normal">
+                <th class='blog-index' scope="row"><span>{{this.index}}</span></th>
+                <th class='blog-title'>
+                    <a class='aLink text-dark h5' href='/blog/{{this.id}}/items' class="d-block">{{this.name}}</a>
+                    <div class='blog-info'>
+                        <time title='Ngày đăng' class='blog-info-item badge badge-danger'><i class="far fa-calendar"></i> {{this.published}}</time>
+                        <div title='Số lượng bài viết' class="blog-info-item badge badge-info"><i class="fas fa-blog"></i> {{this.numPost}}</div>
+                        <div title='Số lượng trang tĩnh' class="blog-info-item badge badge-warning"><i class="far fa-file"></i> {{this.numPage}}</div>
+                    </div>
+                </th>
+                <th><a class="blog-view btn btn-sm btn-outline-primary btn-block" href='{{this.url}}' target='_blank'><i class="fas fa-paperclip"></i> Xem blog</a></th>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

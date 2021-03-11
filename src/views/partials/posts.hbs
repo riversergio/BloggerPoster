@@ -1,0 +1,51 @@
+<form action="/posts/search" id="search-post" class='form-inline mb-3 justify-content-end'>
+    <input type="text" name='q' placeholder='Nhập từ khóa cần tìm...' class="form-control form-control-sm">
+    <button type="submit" class="btn btn-sm btn-primary align-items-center ml-2">
+        <i class="fas fa-search"></i>
+    </button>
+</form>
+<table id='posts' class='table table-sm table-hover'>
+    <thead class='thead-dark'>
+        <tr>
+            <th class='post-select' scope='col'><input class="form-check-input" id='selectAll' type="checkbox"></th>
+            <th colspan='2' scope='col'>Danh sách bài viết</th>
+            <th colspan='2' scope='col'>Ngày tạo</th>
+        </tr>
+    </thead>
+    <tbody id='post-holder'>
+        {{#each posts}}
+        <tr class='post-row'>
+            <td class='post-col post-select' scope='row'>
+                <input class="form-check-input" type="checkbox">
+            </td>
+            <td class='post-col post-thumbnail'>
+                <img src='{{this.thumbnail}}' width='50' height='50' class='img-fluid rounded'>
+            </td>
+            <td class='post-col post-title'>
+                <a title='{{this.title}}' href='/blog/{{../blogId}}/post/{{this.id}}/edit' class='aLink text-dark'>
+                    {{this.title}}
+                </a>
+            </td>
+            <td class='post-col post-published'>
+                <time class='badge badge-danger w-100'>{{this.published}}</time>
+            </td>
+            <td class='post-col post-url'>
+                <a class='btn btn-sm btn-secondary w-100' href='{{this.url}}' target='_blank'>
+                    <i class="far fa-eye"></i>
+                </a>
+            </td>
+        </tr>
+        {{else}}
+        <tr class='post-row post-empty'>
+            <td colspan='5' class='p-3 pl-4 pr-4'>
+                <i class="far fa-folder-open"></i> Không có bài viết nào
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{#if next}}
+<div class="post-pagination text-center">
+    <button data-href="/blog/{{blogId}}/items?page={{next}}" class="btn btn-sm btn-dark">Tải thêm</button>
+</div>
+{{/if}}

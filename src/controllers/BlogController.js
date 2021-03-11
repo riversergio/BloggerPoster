@@ -1,6 +1,6 @@
 const {google} = require('googleapis');
-const blogger = google.blogger('v3');
 const {oauth2Client} = require('../middlewares/auth');
+const blogger = google.blogger('v3');
 
 class BlogController {
 
@@ -66,7 +66,7 @@ class BlogController {
             }))) : [],
         };
         // Render
-        res.render('blog', renderOptions);
+        res.render('itemLists', renderOptions);
     }
 
     // /:blogId/post/:postId/edit
@@ -89,7 +89,7 @@ class BlogController {
         // Request
         const postData = await oauth2Client.request(requestOptions);
         const postParse = postData.data.entry;
-        res.render('post',{
+        res.render('postEdit',{
             userData,
             title: postParse.title.$t,
             app: {
@@ -121,7 +121,7 @@ class BlogController {
         // Request
         const pageData = await oauth2Client.request(requestOptions);
         const pageParse = pageData.data.entry;
-        res.render('post', {
+        res.render('pageEdit', {
             userData,
             title: pageParse.title.$t,
             app: {

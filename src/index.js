@@ -1,3 +1,4 @@
+// Required modules
 const express = require('express');
 const hls = require('express-handlebars');
 const path = require('path');
@@ -8,14 +9,14 @@ const expressSessions = require('express-session');
 const app = express(), port = process.env.PORT || 3000;
 // Router import
 const appRouter = require('./routers');
-// Handle bar helpers
-// App middleware
+// App engine setting
 app.engine('hbs', hls({
     extname: 'hbs',
     defaultView: 'default',
     layoutsDir: __dirname + '/views/layouts',
     particalsPath: __dirname + '/views/partials'
 }));
+// App middleware
 app.use(express.static('public'));
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
@@ -26,14 +27,14 @@ app.use(expressSessions({
     resave: false,
     saveUninitialized: true,
     cookie: { secure: true }
-}))
-// App Set view engine
+}));
+// App Set
 app.set('view engine','hbs');
 app.set('views', path.join(__dirname,'views'));
 app.set('trust proxy', 1);
-// App Router
+// Init routers
 appRouter(app);
-// App init
+// App listen on port
 app.listen(port, () => {
     console.log(`App listen on port ${port}`);
 });

@@ -1,7 +1,7 @@
 $(document).ready(function () {
     const tooltips = $('.controller-bar button');
     const animsition = $(".animsition");
-    const paginationButton = $('.site-pagination .btn');
+    const paginationButton = $('.post-pagination .btn');
     const originpaginationUrl = paginationButton.data('href');
     // Prop
     let paginationUrl = '';
@@ -36,7 +36,7 @@ $(document).ready(function () {
         const cloneText = self.text();
         // Change text
         self.prop('disabled', true);
-        self.text('Đang load...');
+        self.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span><span class= "sr-only">Loading...</span >');
         // Options
         if (typeof paginationUrl !== 'undefined') {
             const ajaxOptions = {
