@@ -46,7 +46,7 @@ $(document).ready(function () {
                     const doc = $(data);
                     const nextPosts = doc.find('.post-row');
                     nextPosts.each((index, item) => $(item).children('.index-col').text(++lastestPostIndex));
-                    paginationUrl = doc.find('.site-pagination .btn').data('href');
+                    paginationUrl = doc.find('.post-pagination .btn').data('href');
                     // Show next post list
                     $('#posts tbody').append($(nextPosts).hide().fadeIn());
                     self.text(cloneText);
