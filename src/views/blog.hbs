@@ -1,0 +1,130 @@
+{{#if isEmpty}}
+<div class='alert alert-danger'>
+    <h3 class='m-0 mb-3'>Blog chưa có bài viết</h3>
+    <hr />
+    <a href='#' class='btn btn-lg btn-danger'>Tạo bài viết ngay</a>
+</div>
+{{else}}
+<div class="mb-5 p-3">
+    <div class="d-flex justify-content-between align-items-center">
+        <h1 class="blog-title">{{blog.title}}</h1>
+        <div class="btn-group">
+            <a href="{{blog.url}}" target='_blank' class="btn btn-primary font-weight-bold">
+                <i class="far fa-eye"></i>
+                Xem blog
+            </a>
+            <a href="{{blog.url}}" target='_blank' class="btn btn-danger font-weight-bold">
+                <i class="far fa-plus-square"></i>
+                Tạo bài viết mới
+            </a>
+            <a href="{{blog.url}}" target='_blank' class="btn btn-warning font-weight-bold">
+                <i class="far fa-plus-square"></i>
+                Tạo trang tĩnh
+            </a>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-8">
+        <h4 class='mb-3 text-center'>Danh sách Bài viết</h4>
+        <form action="/posts/search" id="search-post" class='form-inline mb-3 justify-content-end'>
+            <input type="text" name='q' placeholder='Nhập từ khóa cần tìm...' class="form-control">
+            <button type="submit" class="btn btn-primary align-items-center ml-2">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+        <table id='posts' class='table table-sm rounded'>
+            <thead class='bg-primary mb-2'>
+                <tr class='h6 text-light'>
+                    <th class='text-center' scope='col'>#ID</th>
+                    <th class='text-center' scope='col'></th>
+                    <th scope='col'>Tiêu đề</th>
+                    <th class='text-center' scope='col'>Ngày tạo</th>
+                    <th class='text-center' scope='col'></th>
+                </tr>
+            </thead>
+            <tbody id='post-holder'>
+                {{#each posts}}
+                <tr class='post-row font-weight-normal'>
+                    <td class='index-col bg-light text-dark text-center align-middle' scope='row'>
+                        {{this.index}}
+                    </td>
+                    <td class='thumbnail-col'>
+                        <a href='{{this.thumbnail}}'>
+                            <img src='{{this.thumbnail}}' width='50' height='50' class='img-fluid rounded'>
+                        </a>
+                    </td>
+                    <td class='align-middle'>
+                        <div class='m-0 h6'>
+                            <a title='{{this.title}}' href='/blog/{{../blogId}}/post/{{this.id}}/edit' class='aLink pl-1 pr-1 post-title text-dark'>
+                                {{this.title}}
+                            </a>
+                        </div>
+                    </td>
+                    <td class='align-middle'>
+                        <time class='badge badge-danger w-100 p-2'>
+                            {{this.published}}
+                        </time>
+                    </td>
+                    <td class='view-col align-middle'>
+                        <a class='badge badge-primary w-100 p-2' href='{{this.url}}' target='_blank'>
+                            <i class="far fa-eye"></i>
+                        </a>
+                    </td>
+                </tr>
+                {{else}}
+                <tr class='font-weight-normal bg-light'>
+                    <td colspan='5' class='align-middle p-3 pl-4 pr-4'><div class='m-0 h6'><i class="far fa-folder-open"></i> Không có bài viết nào</div></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{#if next}}
+        <div class="site-pagination text-center">
+            <button data-href="/blog/{{blogId}}/items?page={{next}}" class="btn btn-sm btn-dark">Tải thêm</button>
+        </div>
+        {{/if}}
+    </div>
+    <div class="col-sm-4">
+        <h4 class='mb-3 text-center'>Danh sách Trang</h4>
+        <form action="/pages/search" id="search-post" class='form-inline mb-3 justify-content-center'>
+            <input type="text" name='q' placeholder='Nhập từ khóa cần tìm...' class="form-control">
+            <button type="submit" class="btn btn-primary align-items-center ml-2"><i class="fas fa-search"></i></button>
+        </form>
+        <table id='pages' class='table table-sm rounded'>
+            <thead class='bg-secondary mb-2'>
+                <tr class='text-light'>
+                    <th class='text-center' scope='col'>#ID</th>
+                    <th scope='col'>Tiêu đề</th>
+                    <th class='text-center' scope='col'>URL</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each pages}}
+                <tr class='font-weight-normal'>
+                    <td class='index-col text-center align-middle' scope='row'>{{this.index}}</td>
+                    <td class='align-middle'>
+                        <div class='m-0 h6 pl-2 pr-2'>
+                            <a title='{{this.title}}' href='/blog/{{../blogId}}/page/{{this.id}}/edit' class='aLink mb-1 post-title text-dark'>
+                                {{this.title}}
+                            </a>
+                            <time class='badge badge-danger'>{{this.published}}</time>
+                        </div>
+                    </td>
+                    <td class='view-col align-middle'><a class='badge badge-primary w-100 p-2' href='{{this.url}}' target='_blank'><i class="far fa-eye"></i></a></td>
+                </tr>
+                {{else}}
+                <tr class='font-weight-normal bg-light'>
+                    <td colspan='4' class='align-middle p-3 pl-4 pr-4'>
+                        <div class='m-0 h6'>
+                            <i class="far fa-folder-open"></i>
+                            Không có trang nào
+                        </div>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
+{{/if}}

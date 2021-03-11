@@ -1,0 +1,25 @@
+<nav class="shadow navbar mb-5 navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="aLink navbar-brand" href="/">DucTranSpot - TaiGameTool</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu"
+            aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainMenu">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/signout"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+                </li>
+            </ul>
+            {{#if userData}}
+            <div class="ml-4 d-inline-block">
+                <div class="d-flex align-items-center">
+                    <img class='rounded-circle' width='35' height='35' src='{{userData.picture}}'>
+                    <span class='fn ml-2 text-light'>{{userData.name}}</span>
+                </div>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</nav>

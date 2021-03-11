@@ -1,27 +1,28 @@
-const {oauth2Client} = require('../middlewares/oauthClient');
 const {google} = require('googleapis');
 const blogger = google.blogger('v3');
 
 class PagesController {
-    async index(req,res,next) {
-        const blogData = await blogger.blogs.listByUser({userId: 'self'});
-        console.log(blogData)
+    async index(req,res) {
+        const blogData = await blogger.blogs.listByUser({ userId: 'self' });
+        const blogParseData = blogData.data.items.map((blog,index) => ({
+            index: index + 1,
+            id: blog.id,
+            name: blog.name,
+            status: blog.status,
+            url: blog.url,
+            numPost: blog.posts.totalItems,
+            numPage: blog.pages.totalItems,
+            published: [blog.published.substring(8, 10), blog.published.substring(5, 7), blog.published.substring(0, 4)].join("/")
+        }));
+        
         res.render('index',{
-            msg: "Hello bitches",
-            blogs: blogData.data.items
+            title: "Blogger Poster - DucTranSpot",
+            blogs: blogParseData,
+            userData: res.locals.userData.data
         });
     }
     async authCallback(req, res) {
-        // const qs = new url.URL(req.url).searchParams;
-        const code = req.query.code;
-        const {tokens} = await oauth2Client.getToken(code);
-        oauth2Client.credentials = tokens;
-        res.cookie('user', tokens.access_token, {
-            expires: new Date(Date.now() + (3600 * 1000)),
-            httpOnly: true
-        });
-        res.redirect('/');
+        res.redirect('back');
     }
 }
-
 module.exports = new PagesController();
