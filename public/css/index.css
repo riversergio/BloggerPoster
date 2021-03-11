@@ -4,61 +4,57 @@
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url(../webfonts/Roboto-Light.ttf) format("truetype");
+  src: url(./webfonts/Roboto-Light.ttf) format("truetype");
 }
 @font-face {
   font-family: "Roboto";
   font-style: italic;
   font-weight: 300;
   font-display: swap;
-  src: url(../webfonts/Roboto-LightItalic.ttf) format("truetype");
+  src: url(./webfonts/Roboto-LightItalic.ttf) format("truetype");
 }
 @font-face {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(../webfonts/Roboto-Regular.ttf) format("truetype");
+  src: url(./webfonts/Roboto-Regular.ttf) format("truetype");
 }
 @font-face {
   font-family: "Roboto";
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url(../webfonts/Roboto-Italic.ttf) format("truetype");
+  src: url(./webfonts/Roboto-Italic.ttf) format("truetype");
 }
 @font-face {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(../webfonts/Roboto-Medium.ttf) format("truetype");
+  src: url(./webfonts/Roboto-Medium.ttf) format("truetype");
 }
 @font-face {
   font-family: "Roboto";
   font-style: italic;
   font-weight: 500;
   font-display: swap;
-  src: url(../webfonts/Roboto-MediumItalic.ttf) format("truetype");
+  src: url(./webfonts/Roboto-MediumItalic.ttf) format("truetype");
 }
 @font-face {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(../webfonts/Roboto-Bold.ttf) format("truetype");
+  src: url(./webfonts/Roboto-Bold.ttf) format("truetype");
 }
 @font-face {
   font-family: "Roboto";
   font-style: italic;
   font-weight: 600;
   font-display: swap;
-  src: url(../webfonts/Roboto-BoldItalic.ttf) format("truetype");
+  src: url(./webfonts/Roboto-BoldItalic.ttf) format("truetype");
 }
-body {
-  font-family: "Roboto", sans-serif;
-}
-
 .table thead th {
   font-size: 0.9rem;
 }
@@ -97,6 +93,18 @@ body {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.post-controller {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  transform: translate(0, calc(100% + 1rem));
+  transition: all 0.25s ease;
 }
 
 /*# sourceMappingURL=index.css.map */

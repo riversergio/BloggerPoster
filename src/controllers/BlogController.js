@@ -64,6 +64,7 @@ class BlogController {
                 published: [page.published.substring(8, 10), page.published.substring(5, 7), page.published.substring(0, 4)].join("/"),
                 url: page.url,
             }))) : [],
+            scripts: ['postPagination','selectAll']
         };
         // Render
         res.render('itemLists', renderOptions);

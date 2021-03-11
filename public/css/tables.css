@@ -1,0 +1,41 @@
+.table thead th {
+  font-size: 0.9rem;
+}
+.table .blog-index {
+  text-align: center;
+}
+.table .blog-title a {
+  margin: 0 0 0.15rem;
+  padding: 0.25rem 0 0;
+  display: block;
+}
+.table .blog-title .blog-info {
+  padding: 0 0 0.25rem;
+}
+.table th, .table td {
+  vertical-align: middle;
+}
+.table .post-select {
+  position: relative;
+  width: 30px;
+}
+.table .post-select .form-check-input {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+.table .post-thumbnail {
+  width: calc(50px + .6rem);
+}
+.table .post-title a {
+  font-weight: bold;
+  font-size: 0.85rem;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+/*# sourceMappingURL=tables.css.map */

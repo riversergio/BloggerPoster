@@ -8,11 +8,11 @@
     <title>{{title}}</title>
     <meta name="google-site-verification" content="tST1GUF8E6cOFoJWOrHRoBVJjGApNzVuyxfdj27JK3U" />
     <!-- Embed -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/all.min.css">
-    <link rel="stylesheet" href="/css/animsition.min.css">
-    <script src="/js/jquery-3.6.0.min.js"></script>
-    <script src="/js/animsition.min.js"></script>
+    <link rel="stylesheet" href="/css/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/stylesheets/all.min.css">
+    <link rel="stylesheet" href="/css/stylesheets/animsition.min.css">
+    <script src="/js/scripts/jquery-3.6.0.min.js"></script>
+    <script src="/js/scripts/animsition.min.js"></script>
     <!-- Main -->
     <link rel="stylesheet" href="/css/index.css">
     <script src="/js/index.js"></script>
@@ -28,7 +28,12 @@
         </main>
         {{> footer}}
     </div>
-    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/scripts/bootstrap.bundle.min.js"></script>
+    {{#if scripts}}
+    {{#each scripts}}
+    <script src='/js/{{this}}.js'></script>
+    {{/each}}
+    {{/if}}
 </body>
 
 </html>

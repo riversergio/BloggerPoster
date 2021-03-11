@@ -44,6 +44,11 @@
         {{/each}}
     </tbody>
 </table>
+<div class="post-controller">
+    <div class="btn-group">
+        <button id="removePost" class="btn btn-sm btn-danger">Xóa bài viết</button>
+    </div>
+</div>
 {{#if next}}
 <div class="post-pagination text-center">
     <button data-href="/blog/{{blogId}}/items?page={{next}}" class="btn btn-sm btn-dark">Tải thêm</button>

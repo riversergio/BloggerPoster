@@ -1,40 +1,11 @@
 @import fonts/font
-@mixin textElipses($lineClamp)
-    text-overflow: ellipsis
-    display: -webkit-box
-    -webkit-box-orient: vertical
-    -webkit-line-clamp: #{$lineClamp}
-    overflow: hidden
-    
+@import tables
 body
     font-family: 'Roboto',sans-serif
 
-// Table css
-.table
-    thead th
-        font-size: .9rem
-    .blog-index
-        text-align: center
-    .blog-title
-        a
-            margin: 0 0 .15rem
-            padding: .25rem 0 0
-            display: block
-        .blog-info
-            padding: 0 0 .25rem
-    th, td
-        vertical-align: middle
-    .post-select
-        position: relative
-        width: 30px
-        .form-check-input
-            left: 50%
-            top: 50%
-            transform: translate(-50%,-50%)
-            margin: 0
-    .post-thumbnail
-        width: calc(50px + .6rem)
-    .post-title a
-        font-weight: bold
-        font-size: .85rem
-        @include textElipses(2)
+.post-controller
+    position: fixed
+    right: 1rem
+    bottom: 1rem
+    transform: translate(0,calc(100% + 1rem))
+    transition: all .25s ease
