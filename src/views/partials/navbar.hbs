@@ -7,12 +7,12 @@
         </button>
 
         <div class="collapse navbar-collapse" id="mainMenu">
+            {{#if userData}}
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="/signout"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
                 </li>
             </ul>
-            {{#if userData}}
             <div class="ml-4 d-inline-block">
                 <div class="d-flex align-items-center">
                     <img class='rounded-circle' width='35' height='35' src='{{userData.picture}}'>

@@ -16,7 +16,7 @@
         {{#each posts}}
         <tr class='post-row'>
             <td class='post-col post-select' scope='row'>
-                <input class="form-check-input" type="checkbox">
+                <input data-postId='{{this.id}}' class="form-check-input" type="checkbox">
             </td>
             <td class='post-col post-thumbnail'>
                 <img src='{{this.thumbnail}}' width='50' height='50' class='img-fluid rounded'>
@@ -44,9 +44,14 @@
         {{/each}}
     </tbody>
 </table>
-<div class="post-controller">
-    <div class="btn-group">
-        <button id="removePost" class="btn btn-sm btn-danger">Xóa bài viết</button>
+<div class="post-controller d-flex alert alert-warning">
+    <div class="d-flex align-items-center justify-content-center w-100">
+        <div class="msg mr-3">
+            Đã chọn <span class="num">0</span> bài viết
+        </div>
+        <div class="btn-group">
+            <button id="removePost" class="btn btn-sm btn-danger">Xóa</button>
+        </div>
     </div>
 </div>
 {{#if next}}

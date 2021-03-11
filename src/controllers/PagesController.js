@@ -21,6 +21,10 @@ class PagesController {
             userData: res.locals.userData.data
         });
     }
+    signout(req,res) {
+        res.clearCookie('user');
+        res.redirect('/');
+    }
     async authCallback(req, res) {
         res.redirect('back');
     }

@@ -48,5 +48,5 @@ async function auth(req,res,next) {
     }
 }
 
-module.exports = { auth,oauth2Client};
+module.exports = {auth,oauth2Client};
 

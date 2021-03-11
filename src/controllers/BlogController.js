@@ -26,6 +26,7 @@ class BlogController {
             access_token,
             fetchBodies: true,
             fetchImages: true,
+            view: 'ADMIN',
             maxResults: 10
         };
         if (page)
