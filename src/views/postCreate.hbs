@@ -1,0 +1,180 @@
+<form action="appLeechCH" id='leechForm' method="get" class="form-inline d-block mb-3">
+    <h4>Lấy thông tin APP từ CHPlay</h4>
+    <input id='appCHPlayUrl' type="text" placeholder="Nhập địa chỉ CH Play" name='url'
+        class='form-control form-control-sm'>
+    <button class="btn btn-sm btn-info" type="submit">Lấy thông tin</button>
+</form>
+<form id='appCreateForm' action="/blog/{{blogId}}/post/create/execute">
+    <h4>Thông tin app</h4>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="form-group">
+                <div class="image-preview"></div>
+                {{!-- <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="imgurUploader">
+                    <label class="custom-file-label mb-0" for="imgurUploader">Chọn ảnh</label>
+                </div>
+                <hr /> --}}
+                <div class="file-url">
+                    <input class="form-control" type="text" placeholder="Chưa có ảnh..." readonly>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="appTitle">Tên App <span class="badge badge-danger">Tiêu đề</span></label>
+                <input required id='appTitle' data-target='.app-table__title' type="text" placeholder="Tên app"
+                    name='appName' class='form-control'>
+            </div>
+            <div class="form-group">
+                <label for="appDeveloper">Nhà phát triển <span class="badge badge-danger">Developer</span></label>
+                <input required id='appDeveloper' data-target='.app-table__dev' type="text"
+                    placeholder="Tên nhà phát triển app..." name='appDeveloper' class='form-control'>
+            </div>
+            <div class="form-group">
+                <label for="appGenre">Thể loại <span class="badge badge-danger">Genre</span></label>
+                <input required id='appGenre' data-target='.app-table__genre' type="text" placeholder="Thể loại"
+                    name='appGenre' class='form-control'>
+            </div>
+            <div class="form-group">
+                <label for="appVersion">Phiên bản mới nhất <span class="badge badge-danger">Version</span></label>
+                <input required id='appVersion' data-target='.app-table__version' type="text"
+                    placeholder="Phiên bản app..." name='appVersion' class='form-control'>
+            </div>
+            <div class="form-group">
+                <label for="appSize">Kích thước <span class="badge badge-danger">Size</span></label>
+                <input required id='appSize' data-target='.app-table__size' type="text" placeholder="Kích thước app..."
+                    name='appSize' class='form-control'>
+            </div>
+            <div class="form-group">
+                <label for="CHPlayUrl">Link CHPlay <span class="badge badge-danger">CHPlay Url</span></label>
+                <input required id='CHPlayUrl' data-target='.app-table__CHPlayUrl' type="text"
+                    placeholder="Link CHPlay..." name='CHPlayUrl' class='form-control'>
+            </div>
+        </div>
+        <div class="col-sm-9 form-group">
+            <h4>Thông tin mod</h4>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" data-target='.app-table__modObb' id="obbNeeded">
+                <label class="form-check-label" for="obbNeeded">
+                    Need OBB ?
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" data-target='.app-table__modInternet'
+                    id="internetNeeded">
+                <label class="form-check-label" for="internetNeeded">
+                    Need Internet ?
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" data-target='.app-table__modRoot' id="rootNeeded">
+                <label class="form-check-label" for="rootNeeded">
+                    Need Root ?
+                </label>
+            </div>
+            <br />
+            <div class="form-group">
+                <label for="modder">Tên Người Mod <span class="badge badge-danger">Modder</span></label>
+                <input required id='modder' data-target='.app-table__modderName'
+                    placeholder="Nhập tên người mod vào đây..." name='modderName' class='form-control'>
+            </div>
+            <div class="form-group">
+                <label for="modDetails">Chức năng mod <span class="badge badge-danger">Mod detail</span></label>
+                <textarea required id='modDetails' data-target='.app-table__modDetails'
+                    placeholder="Mod có những chức năng gì ?" name='modDetails' class='form-control'></textarea>
+            </div>
+            <div class="form-group">
+                <label for="modDownload">Link Download mod <span class="badge badge-danger">Mod Url</span></label>
+                <button type='button' id='addDownload' class="btn mt-3 btn-primary btn-block">Thêm nút tải mới</button>
+                <table class='table download-link-list'>
+                    <thead>
+                        <tr>
+                            <th scope="row">#ID</th>
+                            <th scope="row">Tiêu đề link</th>
+                            <th scope="row">Liên kết</th>
+                            <th scope="row">Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody id='download-preview'>
+
+                    </tbody>
+                </table>
+            </div>
+            <h4>Nội dung App</h4>
+            <div class="app-content">
+                <div class="app-editor content-mode">
+                    {{> wysiwyg_toolbar}}
+                    <div class="app-content-editor shadow border rounded p-3 mt-3" contenteditable="true">
+                        <span class='quick-info'></span>
+                        <div class='app-detail'>
+                            <table class="table table-bordered table-hover app-table">
+                                <thead class='thead-dark'>
+                                    <tr>
+                                        <th class='font-weight-bold' colspan='2'>Thông tin app</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="app-table__title">
+                                        <td>Tên app</td>
+                                        <td class="value">...</td>
+                                    </tr>
+                                    <tr class="app-table__dev">
+                                        <td>Nhà phát triển</td>
+                                        <td class="value">...</td>
+                                    </tr>
+                                    <tr class="app-table__genre">
+                                        <td>Thể loại</td>
+                                        <td class="value">...</td>
+                                    </tr>
+                                    <tr class="app-table__version">
+                                        <td>Phiên bản</td>
+                                        <td class="value">...</td>
+                                    </tr>
+                                    <tr class="app-table__CHPlayUrl">
+                                        <td>Tải ứng dụng trên CHPlay</td>
+                                        <td class="value">...</td>
+                                    </tr>
+                                    <tr class="app-table__size">
+                                        <td>Kích thước</td>
+                                        <td class="value">...</td>
+                                    </tr>
+                                    <tr class="app-table__modDetails">
+                                        <td>Chức năng mod</td>
+                                        <td class="value">...</td>
+                                    </tr>
+                                    <tr class="app-table__modObb">
+                                        <td>OBB</td>
+                                        <td class="value">NO</td>
+                                    </tr>
+                                    <tr class="app-table__modInternet">
+                                        <td>Internet</td>
+                                        <td class="value">NO</td>
+                                    </tr>
+                                    <tr class="app-table__modRoot">
+                                        <td>Root</td>
+                                        <td class="value">NO</td>
+                                    </tr>
+                                    <tr class="app-table__modderName">
+                                        <td>Modder</td>
+                                        <td class="value">...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <img class='hidden-thumbnail sr-only' />
+                            <!--more-->
+                            <h4 class="my-3"><i class="far fa-images"></i> Ảnh</h4>
+                            <div class='images app-images' style='overflow-x: auto; white-space: nowrap;'></div>
+                            <h4 class="my-3"><i class="fas fa-info"></i> Nội dung &amp; mô tả</h4>
+                            <div class='detail'></div>
+                            <h4 class="my-3"><i class="fas fa-download"></i> Tải app</h4>
+                            <div class='downloads app-modDownload'></div>
+                        </div>
+                    </div>
+                    <textarea name="appCode" id="app-content-code" class="app-content-code"></textarea>
+                </div>
+            </div>
+            <div class="text-right mt-3">
+                <button class='btn btn-primary' type="submit">Đăng bài viết</button>
+            </div>
+        </div>
+    </div>
+</form>

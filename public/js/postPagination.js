@@ -24,10 +24,6 @@ paginationButton.on('click', e => {
                 paginationUrl = doc.find('.post-pagination .btn').data('href');
                 // Show next post list
                 $('#posts tbody').append($(nextPosts).hide().fadeIn());
-                // Update post select
-                posts = selectAllCheckBox.parent().parent().parent().next().find('.form-check-input');
-                posts.each((i, post) => $(post).off('change'));
-                posts.each((i, post) => $(post).on('change', postsOnCheck));
                 self.text(cloneText);
                 self.prop('disabled', false);
             },

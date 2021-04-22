@@ -3,27 +3,27 @@ const fs = require('fs');
 const path = require('path');
 // Get key file
 const keyPath = path.join(__dirname, 'clientKeys.json');
-let keys = {redirect_uris:[""]};
+let keys = { redirect_uris: [""] };
 if (fs.existsSync(keyPath)) {
     keys = require(keyPath).web;
 }
 // Create auth client
 const oauth2Client = new google.auth.OAuth2(keys.client_id, keys.client_secret, keys.redirect_uris[0]);
 // Set auth options
-google.options({auth: oauth2Client});
+google.options({ auth: oauth2Client });
 // Export 
-async function auth(req,res,next) {
-    if(req.url.indexOf('/authCallback') > -1) {
+async function auth(req, res, next) {
+    if (req.url.indexOf('/authCallback') > -1) {
         // Handle callback site
         const code = req.query.code;
         const { tokens } = await oauth2Client.getToken(code);
         oauth2Client.credentials = tokens;
         res.cookie('user', tokens.access_token, {
-            expires: new Date(Date.now() + (1 * 60 * 60 * 1000)),
+            expires: new Date(tokens.expiry_date),
             httpOnly: true
         });
         next();
-    }else{
+    } else {
         // Handle other site
         const user = req.cookies.user;
         if (!user) {
@@ -48,5 +48,5 @@ async function auth(req,res,next) {
     }
 }
 
-module.exports = {auth,oauth2Client};
+module.exports = { auth, oauth2Client };
 

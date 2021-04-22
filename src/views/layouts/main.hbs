@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="/css/stylesheets/bootstrap.min.css">
     <link rel="stylesheet" href="/css/stylesheets/all.min.css">
     <link rel="stylesheet" href="/css/stylesheets/animsition.min.css">
+    {{#if styles}}
+    {{#each styles}}
+    <link rel="stylesheet" href="/css/stylesheets/{{this}}.css">
+    {{/each}}
+    {{/if}}
     <script src="/js/scripts/jquery-3.6.0.min.js"></script>
     <script src="/js/scripts/animsition.min.js"></script>
     <!-- Main -->
@@ -31,7 +36,7 @@
     <script src="/js/scripts/bootstrap.bundle.min.js"></script>
     {{#if scripts}}
     {{#each scripts}}
-    <script src='/js/{{this}}.js'></script>
+    <script defer src='/js/{{this}}.js'></script>
     {{/each}}
     {{/if}}
 </body>

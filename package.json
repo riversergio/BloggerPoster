@@ -15,7 +15,9 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.2.1",
     "express-session": "^1.17.1",
+    "google-play-scraper": "^8.0.2",
     "googleapis": "^67.1.1",
+    "he": "^1.2.0",
     "method-override": "^3.0.0"
   },
   "devDependencies": {

@@ -3,7 +3,7 @@
 body
     font-family: 'Roboto',sans-serif
 
-.post-controller
+.item-info,.item-msg
     position: fixed
     left: 0
     bottom: -100%
@@ -15,3 +15,68 @@ body
         font-weight: bold
     &.active
         bottom: 0
+
+.item-msg
+    padding: 1rem
+    z-index: 2
+    &.alert-warning
+        .remove-success-msg
+            display: none
+        .remove-msg
+            display: block
+    &.alert-success
+        bottom: 0
+        .remove-success-msg
+            display: block
+        .remove-msg
+            display: none
+
+.app-editor
+    position: relative
+    .CodeMirror
+        position: relative
+        margin: 1rem 0 0
+        overflow: hidden
+        border-radius: .25rem
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)
+        font-size: 16px
+    .app-content-editor
+        img
+            max-width: 100%
+            height: auto
+            object-fit: contain
+            display: block
+            margin: 0 auto
+    &.content-mode
+        .app-content-editor
+            display: block
+        .CodeMirror
+            display: none
+    &.code-mode
+        .app-content-editor
+            display: none
+        .CodeMirror
+            display: block
+.custom-file-input:lang(en)~.custom-file-label
+    cursor: pointer
+    &::after
+        content: 'Tìm'
+
+tr.button-row.editing
+    p
+        margin: 0
+    p[contenteditable]
+        padding: .5rem 1rem
+        background-color: #333
+        font-size: .7rem
+        color: #ffffff
+        border-radius: .25rem
+        overflow: hidden
+        max-width: 300px
+        overflow-x: auto
+        white-space: nowrap
+        &:empty:before
+            content: "Vui lòng nhập dữ liệu"
+            opacity: .7
+    .btn-title,.btn-url
+        width: 40%

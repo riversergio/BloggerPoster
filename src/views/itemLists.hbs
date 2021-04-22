@@ -7,17 +7,17 @@
 {{else}}
 <div class="mb-5 p-3">
     <div class="d-flex justify-content-between align-items-center">
-        <h1 class="blog-title">{{blog.title}}</h1>
+        <h1 class="blog-title h5">{{blog.title}}</h1>
         <div class="btn-group">
-            <a href="{{blog.url}}" target='_blank' class="btn btn-primary font-weight-bold">
+            <a href="{{blog.url}}" target='_blank' class="btn btn-sm btn-primary font-weight-bold">
                 <i class="far fa-eye"></i>
                 Xem blog
             </a>
-            <a href="{{blog.url}}" target='_blank' class="btn btn-danger font-weight-bold">
+            <a href="/blog/{{blogId}}/post/create" class="btn btn-sm btn-danger font-weight-bold">
                 <i class="far fa-plus-square"></i>
                 Tạo bài viết mới
             </a>
-            <a href="{{blog.url}}" target='_blank' class="btn btn-warning font-weight-bold">
+            <a href="/blog/{{blogId}}/page/create" class="btn btn-sm btn-warning font-weight-bold">
                 <i class="far fa-plus-square"></i>
                 Tạo trang tĩnh
             </a>
@@ -32,4 +32,5 @@
         {{> pages}}
     </div>
 </div>
+{{> postUtils}}
 {{/if}}

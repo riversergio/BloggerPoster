@@ -15,11 +15,11 @@
 .table th, .table td {
   vertical-align: middle;
 }
-.table .post-select {
+.table .item-select {
   position: relative;
   width: 30px;
 }
-.table .post-select .form-check-input {
+.table .item-select .form-check-input {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);

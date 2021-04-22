@@ -7,7 +7,9 @@
 <table id='posts' class='table table-sm table-hover'>
     <thead class='thead-dark'>
         <tr>
-            <th class='post-select' scope='col'><input class="form-check-input" id='selectAll' type="checkbox"></th>
+            <th class='item-select' scope='col'>
+                <input class="form-check-input" id='selectAllPosts' type="checkbox">
+            </th>
             <th colspan='2' scope='col'>Danh sách bài viết</th>
             <th colspan='2' scope='col'>Ngày tạo</th>
         </tr>
@@ -15,8 +17,9 @@
     <tbody id='post-holder'>
         {{#each posts}}
         <tr class='post-row'>
-            <td class='post-col post-select' scope='row'>
-                <input data-postId='{{this.id}}' class="form-check-input" type="checkbox">
+            <td class='post-col item-select' scope='row'>
+                <input onclick="inlinePostSelect(this)" data-postId='{{this.id}}' class="form-check-input"
+                    type="checkbox">
             </td>
             <td class='post-col post-thumbnail'>
                 <img src='{{this.thumbnail}}' width='50' height='50' class='img-fluid rounded'>
@@ -44,16 +47,6 @@
         {{/each}}
     </tbody>
 </table>
-<div class="post-controller d-flex alert alert-warning">
-    <div class="d-flex align-items-center justify-content-center w-100">
-        <div class="msg mr-3">
-            Đã chọn <span class="num">0</span> bài viết
-        </div>
-        <div class="btn-group">
-            <button id="removePost" class="btn btn-sm btn-danger">Xóa</button>
-        </div>
-    </div>
-</div>
 {{#if next}}
 <div class="post-pagination text-center">
     <button data-href="/blog/{{blogId}}/items?page={{next}}" class="btn btn-sm btn-dark">Tải thêm</button>

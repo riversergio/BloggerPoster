@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* vietnamese */
 @font-face {
   font-family: "Roboto";
@@ -72,11 +73,11 @@
 .table th, .table td {
   vertical-align: middle;
 }
-.table .post-select {
+.table .item-select {
   position: relative;
   width: 30px;
 }
-.table .post-select .form-check-input {
+.table .item-select .form-check-input {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -99,7 +100,7 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-.post-controller {
+.item-info, .item-msg {
   position: fixed;
   left: 0;
   bottom: -100%;
@@ -108,11 +109,91 @@ body {
   margin: 0;
   transition: all 0.25s ease;
 }
-.post-controller .num {
+.item-info .num, .item-msg .num {
   font-weight: bold;
 }
-.post-controller.active {
+.item-info.active, .item-msg.active {
   bottom: 0;
+}
+
+.item-msg {
+  padding: 1rem;
+  z-index: 2;
+}
+.item-msg.alert-warning .remove-success-msg {
+  display: none;
+}
+.item-msg.alert-warning .remove-msg {
+  display: block;
+}
+.item-msg.alert-success {
+  bottom: 0;
+}
+.item-msg.alert-success .remove-success-msg {
+  display: block;
+}
+.item-msg.alert-success .remove-msg {
+  display: none;
+}
+
+.app-editor {
+  position: relative;
+}
+.app-editor .CodeMirror {
+  position: relative;
+  margin: 1rem 0 0;
+  overflow: hidden;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  font-size: 16px;
+}
+.app-editor .app-content-editor img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+.app-editor.content-mode .app-content-editor {
+  display: block;
+}
+.app-editor.content-mode .CodeMirror {
+  display: none;
+}
+.app-editor.code-mode .app-content-editor {
+  display: none;
+}
+.app-editor.code-mode .CodeMirror {
+  display: block;
+}
+
+.custom-file-input:lang(en) ~ .custom-file-label {
+  cursor: pointer;
+}
+.custom-file-input:lang(en) ~ .custom-file-label::after {
+  content: "Tìm";
+}
+
+tr.button-row.editing p {
+  margin: 0;
+}
+tr.button-row.editing p[contenteditable] {
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  font-size: 0.7rem;
+  color: #ffffff;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  max-width: 300px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+tr.button-row.editing p[contenteditable]:empty:before {
+  content: "Vui lòng nhập dữ liệu";
+  opacity: 0.7;
+}
+tr.button-row.editing .btn-title, tr.button-row.editing .btn-url {
+  width: 40%;
 }
 
 /*# sourceMappingURL=index.css.map */

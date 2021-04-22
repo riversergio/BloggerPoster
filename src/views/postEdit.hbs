@@ -1,4 +1,3 @@
-
 <div class="app-info clearfix">
     <div class="app-image float-left mr-3">
         <img class="shadow img-fluid rounded" width='100' height='100' src='{{app.image}}'>
@@ -11,11 +10,14 @@
 <div class="row">
     <div class="col-sm-8">
         <div class="app-content">
-            <div class="app-editor">
+            <div class="app-editor content-mode">
                 {{> wysiwyg_toolbar}}
                 <div class="app-content-editor shadow border rounded p-3 mt-3" contenteditable="true">
                     {{{app.content}}}
                 </div>
+                <textarea name="appCode" id="app-content-code" class="app-content-code">
+                    {{app.content}}
+                </textarea>
             </div>
         </div>
     </div>
