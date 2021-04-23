@@ -18,24 +18,16 @@ class BlogController {
 		const access_token = req.cookies.user;
 		const { page } = req.query;
 		// Request options
-		const pageRequestOption = {
-			blogId,
-			access_token,
-			fetchBodies: true,
-		};
 		const postRequestOption = {
 			blogId,
 			access_token,
-			fetchBodies: true,
 			fetchImages: true,
-			view: "ADMIN",
 			maxResults: 10,
 		};
 		if (page) postRequestOption.pageToken = page;
 		// Get posts
 		const blogData = await blogger.blogs.get({ blogId });
 		const postData = await blogger.posts.list(postRequestOption);
-		const pageData = await blogger.pages.list(pageRequestOption);
 		const userData = res.locals.userData.data;
 		// Render options
 		const renderOptions = {
@@ -84,28 +76,6 @@ class BlogController {
 						].join("/"),
 						url: post.url,
 						labels: post.labels,
-					}))
-					: [],
-			pages:
-				"items" in pageData.data
-					? pageData.data.items.map((page, index) => ({
-						id: page.id,
-						index: index + 1,
-						title: /<\s*(\w+)[^>]*>(.*?)<\s*\/\s*(\1)>/g.exec(
-							page.title
-						)
-							? page.title.replace(
-								/<\s*(\w+)[^>]*>(.*?)<\s*\/\s*(\1)>/g,
-								"$2"
-							)
-							: he.decode(page.title),
-						author: page.author,
-						published: [
-							page.published.substring(8, 10),
-							page.published.substring(5, 7),
-							page.published.substring(0, 4),
-						].join("/"),
-						url: page.url,
 					}))
 					: [],
 			scripts: ["postPagination", "selectAll"],
