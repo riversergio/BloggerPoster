@@ -8,7 +8,13 @@ $(document).ready(function () {
     };
     // Init
     tooltips.tooltip(tooltipOptions);
-    $('.tm-input').tagsManager({
+    const tagManager = $('.tm-input').tagsManager({
         tagsContainer: '.tags-show',
     });
+    $('#addTags').on('click', e => {
+        e.preventDefault();
+        if ($('.tm-input').val().length) {
+            tagManager.tagsManager('pushTag', $('.tm-input').val().trim());
+        }
+    })
 });

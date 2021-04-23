@@ -85,105 +85,110 @@
             <div class="form">
                 <div class="form-group">
                     <label for='appTags'>Tags</label>
-                    <input type="text" id="appTags" name="appTags" class="form-control tm-input" />
-                </div>
-                <div class="tags-show">
-
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="modDownload">Link Download mod <span class="badge badge-danger">Mod Url</span></label>
-                <button type='button' id='addDownload' class="btn mt-3 btn-primary btn-block">Thêm nút tải mới</button>
-                <table class='table download-link-list'>
-                    <thead>
-                        <tr>
-                            <th scope="row">#ID</th>
-                            <th scope="row">Tiêu đề link</th>
-                            <th scope="row">Liên kết</th>
-                            <th scope="row">Hành động</th>
-                        </tr>
-                    </thead>
-                    <tbody id='download-preview'>
-
-                    </tbody>
-                </table>
-            </div>
-            <h4>Nội dung App</h4>
-            <div class="app-content">
-                <div class="app-editor content-mode">
-                    {{> wysiwyg_toolbar}}
-                    <div class="app-content-editor shadow border rounded p-3 mt-3" contenteditable="true">
-                        <span class='quick-info'></span>
-                        <div class='app-detail'>
-                            <table class="table table-bordered table-hover app-table">
-                                <thead class='thead-dark'>
-                                    <tr>
-                                        <th class='font-weight-bold' colspan='2'>Thông tin app</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="app-table__title">
-                                        <td>Tên app</td>
-                                        <td class="value">...</td>
-                                    </tr>
-                                    <tr class="app-table__dev">
-                                        <td>Nhà phát triển</td>
-                                        <td class="value">...</td>
-                                    </tr>
-                                    <tr class="app-table__genre">
-                                        <td>Thể loại</td>
-                                        <td class="value">...</td>
-                                    </tr>
-                                    <tr class="app-table__version">
-                                        <td>Phiên bản</td>
-                                        <td class="value">...</td>
-                                    </tr>
-                                    <tr class="app-table__CHPlayUrl">
-                                        <td>Tải ứng dụng trên CHPlay</td>
-                                        <td class="value">...</td>
-                                    </tr>
-                                    <tr class="app-table__size">
-                                        <td>Kích thước</td>
-                                        <td class="value">...</td>
-                                    </tr>
-                                    <tr class="app-table__modDetails">
-                                        <td>Chức năng mod</td>
-                                        <td class="value">...</td>
-                                    </tr>
-                                    <tr class="app-table__modObb">
-                                        <td>OBB</td>
-                                        <td class="value">NO</td>
-                                    </tr>
-                                    <tr class="app-table__modInternet">
-                                        <td>Internet</td>
-                                        <td class="value">NO</td>
-                                    </tr>
-                                    <tr class="app-table__modRoot">
-                                        <td>Root</td>
-                                        <td class="value">NO</td>
-                                    </tr>
-                                    <tr class="app-table__modderName">
-                                        <td>Modder</td>
-                                        <td class="value">...</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <img class='hidden-thumbnail sr-only' />
-                            <!--more-->
-                            <h4 class="my-3"><i class="far fa-images"></i> Ảnh</h4>
-                            <div class='images app-images' style='overflow-x: auto; white-space: nowrap;'></div>
-                            <h4 class="my-3">✔️ Nội dung &amp; mô tả</h4>
-                            <div class='detail'></div>
-                            <h4 class="my-3"><i class="fas fa-download"></i> Tải app</h4>
-                            <div class='downloads app-modDownload'></div>
-                        </div>
+                    <div class="row">
+                        <div class="col-8"><input type="text" id="appTags" name="appTags"
+                                class="form-control tm-input" /></div>
+                        <button type="button" class="btn btn-primary" id='addTags'>Thêm</button>
                     </div>
-                    <textarea name="appCode" id="app-content-code" class="app-content-code"></textarea>
+                    </d>
+                    <div class="tags-show">
+
+                    </div>
                 </div>
-            </div>
-            <div class="text-right mt-3">
-                <button class='btn btn-primary' type="submit">Đăng bài viết</button>
+                <div class="form-group">
+                    <label for="modDownload">Link Download mod <span class="badge badge-danger">Mod Url</span></label>
+                    <button type='button' id='addDownload' class="btn mt-3 btn-primary btn-block">Thêm nút tải
+                        mới</button>
+                    <table class='table download-link-list'>
+                        <thead>
+                            <tr>
+                                <th scope="row">#ID</th>
+                                <th scope="row">Tiêu đề link</th>
+                                <th scope="row">Liên kết</th>
+                                <th scope="row">Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody id='download-preview'>
+
+                        </tbody>
+                    </table>
+                </div>
+                <h4>Nội dung App</h4>
+                <div class="app-content">
+                    <div class="app-editor content-mode">
+                        {{> wysiwyg_toolbar}}
+                        <div class="app-content-editor shadow border rounded p-3 mt-3" contenteditable="true">
+                            <span class='quick-info'></span>
+                            <div class='app-detail'>
+                                <table class="table table-bordered table-hover app-table">
+                                    <thead class='thead-dark'>
+                                        <tr>
+                                            <th class='font-weight-bold' colspan='2'>Thông tin app</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="app-table__title">
+                                            <td>Tên app</td>
+                                            <td class="value">...</td>
+                                        </tr>
+                                        <tr class="app-table__dev">
+                                            <td>Nhà phát triển</td>
+                                            <td class="value">...</td>
+                                        </tr>
+                                        <tr class="app-table__genre">
+                                            <td>Thể loại</td>
+                                            <td class="value">...</td>
+                                        </tr>
+                                        <tr class="app-table__version">
+                                            <td>Phiên bản</td>
+                                            <td class="value">...</td>
+                                        </tr>
+                                        <tr class="app-table__CHPlayUrl">
+                                            <td>Tải ứng dụng trên CHPlay</td>
+                                            <td class="value">...</td>
+                                        </tr>
+                                        <tr class="app-table__size">
+                                            <td>Kích thước</td>
+                                            <td class="value">...</td>
+                                        </tr>
+                                        <tr class="app-table__modDetails">
+                                            <td>Chức năng mod</td>
+                                            <td class="value">...</td>
+                                        </tr>
+                                        <tr class="app-table__modObb">
+                                            <td>OBB</td>
+                                            <td class="value">NO</td>
+                                        </tr>
+                                        <tr class="app-table__modInternet">
+                                            <td>Internet</td>
+                                            <td class="value">NO</td>
+                                        </tr>
+                                        <tr class="app-table__modRoot">
+                                            <td>Root</td>
+                                            <td class="value">NO</td>
+                                        </tr>
+                                        <tr class="app-table__modderName">
+                                            <td>Modder</td>
+                                            <td class="value">...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <img class='hidden-thumbnail sr-only' />
+                                <!--more-->
+                                <h4 class="my-3"><i class="far fa-images"></i> Ảnh</h4>
+                                <div class='images app-images' style='overflow-x: auto; white-space: nowrap;'></div>
+                                <h4 class="my-3">✔️ Nội dung &amp; mô tả</h4>
+                                <div class='detail'></div>
+                                <h4 class="my-3"><i class="fas fa-download"></i> Tải app</h4>
+                                <div class='downloads app-modDownload'></div>
+                            </div>
+                        </div>
+                        <textarea name="appCode" id="app-content-code" class="app-content-code"></textarea>
+                    </div>
+                </div>
+                <div class="text-right mt-3">
+                    <button class='btn btn-primary' type="submit">Đăng bài viết</button>
+                </div>
             </div>
         </div>
-    </div>
 </form>
