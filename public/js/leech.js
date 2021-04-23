@@ -185,7 +185,7 @@ createForm.on('submit', e => {
             data: {
                 title: formData.appName,
                 content: formData.appCode,
-                labels: [formData.appGenre]
+                labels: formData['hidden-appTags'].split(',')
             },
             success: (data) => {
                 alert("Đã đăng thành công");
@@ -193,4 +193,4 @@ createForm.on('submit', e => {
             error: (err) => alert("Có lỗi xảy ra")
         })
     return false;
-})
+});
