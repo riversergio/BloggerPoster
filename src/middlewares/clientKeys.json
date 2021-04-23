@@ -7,10 +7,11 @@
         "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
         "client_secret": "RZnEWNlOz-UHkfHDvhTbW4-L",
         "redirect_uris": [
-            "https://taigametool.herokuapp.com/authCallback",
-            "https://ductranspot.herokuapp.com/authCallback",
+            "http://127.0.0.1:3000/authCallback",
             "http://localhost:3000/authCallback",
-            "https://developers.google.com/oauthplayground"
+            "https://developers.google.com/oauthplayground",
+            "https://ductranspot.herokuapp.com/authCallback",
+            "https://taigametool.herokuapp.com/authCallback"
         ],
         "javascript_origins": [
             "http://127.0.0.1:3000",
