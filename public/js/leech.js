@@ -141,6 +141,7 @@ function fillLeechInput(data) {
                 break;
         }
     });
+    appImages.html('');
     $(data.screenshots).each((i, img) => {
         const imgUrl = replaceImageApp(img);
         appImages.append(`
@@ -164,6 +165,7 @@ leechForm.on('submit', e => {
     if (!leeching)
         $.ajax(ajaxOptions).done(data => {
             // Preview
+            console.log(data);
             previewImage(replaceImageApp(data.icon));
             fillLeechInput(data);
             leeching = false;
