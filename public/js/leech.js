@@ -191,6 +191,7 @@ createForm.on('submit', e => {
             },
             success: (data) => {
                 alert("Đã đăng thành công");
+                location.href = document.referrer;
             },
             error: (err) => alert("Có lỗi xảy ra")
         })
